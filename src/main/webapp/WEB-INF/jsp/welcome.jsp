@@ -1,3 +1,4 @@
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
@@ -45,21 +46,54 @@
                                                                  
     });
 </script>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <title>WELCOME</title>
+  
+        <link rel=stylesheet href="${pageContext.request.contextPath}/css/bootstrap.css"/>
+
 </head>                                                                        
 <body>
-${userValueObject.name}
-<datalist></datalist></datalist>
-<h3>Zwierzatka:</h3>
-<div>
-<li id="petsList">
-</li>
-    <button id="getPetButton" value="pobierz nastepne"
-            />
+
+<div class="navbar">
+    <div class="navbar-inner">
+    <ul class="nav nav-pils">
+        <li class="active"><a href="#">Home</a></li>
+        <li class="disabled"><a href="#">Profile</a></li>
+        <li class="disabled"><a href="#">Other Shit</a></li>
+        <li class="dropdown">
+            <a class="dropdown-toggle"
+               data-toggle="dropdown"
+               href="#">
+                Show Off
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+            </ul>
+        </li>
+        <li class="pill">Home</li>
+    </ul>
+    </div>
 </div>
-<div>
+<div class="container-fluid">
+<div class="span2">
+    <img src="${pageContext.request.contextPath}/img/mugshot.jpg" class="img-rounded">
+    <ul class="nav navlist">
+        <li><a href="#" class="btn btn-large btn-primary disabled">1</a> </li>
+        <li><a href="#" class="btn btn-large btn-primary disabled">2</a></li>
+        <li><a href="#" class="btn btn-large btn-primary disabled">3</a></li>
+        <li><a href="#" class="btn btn-large btn-primary disabled">4</a></li>
+        <li><a href="#" class="btn btn-large btn-primary disabled">5</a></li>
+    </ul>
+</div>
+<div class="span8">
+    <h3>Zwierzatka:</h3>
+    <li id="petsList">
+    </li>
     <h2> Dodaj zwierzaczki </h2>    
     <form:form id="petForm" modelAttribute="petForm">
         <fieldset>
@@ -71,10 +105,11 @@ ${userValueObject.name}
                 <form:input path="owner" id="ownerInput"/>
                 <span id="ownerError" class="errorSpan"></span>
             </div>
-        <button type="submit" form="petForm" value="submit"></button>
+        <button type="submit" form="petForm" class="btn-primary" value="submit"></button>
         </fieldset>
-    </form:form>                     
+    </form:form>
+    <button id="getPetButton" value="pobierz nastepne"/>
 </div>
-
+</div>
 </body>
 </html>
